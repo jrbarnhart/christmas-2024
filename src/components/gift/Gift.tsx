@@ -1,9 +1,9 @@
 import { Bottom, Side, Top } from "./textures";
 
-export default function Gift() {
+export default function Gift({ isIdle }: { isIdle: boolean }) {
   return (
     <div className="scene">
-      <div className="cube">
+      <div className={(isIdle ? "cube--animated " : "") + "cube"}>
         <div className="cube__face cube__face--front">
           <Side />
         </div>
