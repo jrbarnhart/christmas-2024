@@ -1,9 +1,7 @@
-import "./App.css";
-
 function App() {
   return (
     <>
-      <p>Merry Christmas</p>
+      <p className="text-lg font-bold text-red-500">Merry Christmas</p>
     </>
   );
 }
