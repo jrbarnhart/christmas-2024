@@ -1,9 +1,13 @@
 import { Bottom, Side, Top } from "./textures";
 
-export default function Gift({ isIdle }: { isIdle: boolean }) {
+export default function Gift({
+  cubeRef,
+}: {
+  cubeRef: React.RefObject<HTMLDivElement>;
+}) {
   return (
     <div className="scene">
-      <div className={(isIdle ? "cube--animated " : "") + "cube"}>
+      <div className="cube" ref={cubeRef}>
         <div className="cube__face cube__face--front">
           <Side />
         </div>
