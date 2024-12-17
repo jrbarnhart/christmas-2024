@@ -1,7 +1,9 @@
+import Gift from "./components/gift/Gift";
+
 function App() {
   return (
     <>
-      <p className="text-lg font-bold text-red-500">Merry Christmas</p>
+      <Gift />
     </>
   );
 }
