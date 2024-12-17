@@ -14,12 +14,12 @@
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(-30deg) rotateY(-45deg);
-  animation: spin 5s infinite linear;
-  animation-play-state: paused;
+  /*   animation: spin 5s infinite linear;
+  animation-play-state: paused; */
 }
 
 .cube--animated {
-  animation-play-state: running;
+  /* animation-play-state: running; */
 }
 
 .cube__face {
@@ -48,11 +48,11 @@
   transform: rotateX(-90deg) translateZ(100px);
 }
 
-@keyframes spin {
+/* @keyframes spin {
   from {
     transform: rotateX(-30deg) rotateY(-45deg);
   }
   to {
     transform: rotateX(-30deg) rotateY(315deg);
   }
-}
+} */
