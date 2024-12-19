@@ -77,6 +77,10 @@
   opacity: 0;
 }
 
+.snowflake {
+  animation: snowflakeFall 15s infinite;
+}
+
 @keyframes fallFront {
   0% {
     transform: rotateY(0deg) translateZ(100px);
@@ -138,5 +142,14 @@
   }
   100% {
     transform: rotateX(90deg) translateZ(1000px) rotateY(720deg);
+  }
+}
+
+@keyframes snowflakeFall {
+  0% {
+    transform: translateY(0vh);
+  }
+  100% {
+    transform: translateY(132vh);
   }
 }

@@ -1,5 +1,6 @@
 import Gift from "./components/gift/Gift";
 import OpenGiftButton from "./components/openGiftButton/OpenGiftButton";
+import Snowflakes from "./components/snowflakes/Snowflakes";
 import useAppState from "./hooks/useAppState";
 import useControls from "./hooks/useControls";
 
@@ -8,7 +9,7 @@ function App() {
   const { handleMouseDown, cubeRef } = useControls({ appState });
 
   return (
-    <main className="bg-slate-500/50 h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
+    <main className="bg-gradient-to-tr from-red-300 to-green-300 via-white h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
       <div
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
@@ -18,6 +19,9 @@ function App() {
       </div>
       <div className="row-start-3 col-start-2 self-center justify-self-center">
         <OpenGiftButton appState={appState} />
+      </div>
+      <div className="row-span-full col-span-full pointer-events-none touch-none">
+        <Snowflakes />
       </div>
     </main>
   );
