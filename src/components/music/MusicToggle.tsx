@@ -29,7 +29,8 @@ export default function MusicToggle({
     <button
       onClick={handleClick}
       type="button"
-      className="h-10 w-10 bg-red-500 rounded-full flex items-center justify-center"
+      id="music-toggle"
+      className="h-12 w-12 bg-red-500 hover:bg-red-400 active:bg-red-600 text-neutral-50 border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg"
     >
       {appState.isMusicPlaying.value ? <VolumeOff /> : <Music />}
     </button>
