@@ -8,6 +8,7 @@ export default function useControls({ appState }: { appState: AppState }) {
   const setMomentum = appState.momentum.set;
   const currentRotation = appState.currentRotation.value;
   const setCurrentRotation = appState.currentRotation.set;
+  const isBoxOpen = appState.isBoxOpen.value;
   const initialPosRef = useRef({ x: 0, y: 0 });
   const lastMoveTimeRef = useRef(Date.now());
   const lastDeltaRef = useRef({ x: 0, y: 0 });
@@ -91,6 +92,7 @@ export default function useControls({ appState }: { appState: AppState }) {
   }, [currentRotation]);
 
   const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
+    if (isBoxOpen) return;
     const { clientX, clientY } = (e as React.MouseEvent).clientX
       ? (e as React.MouseEvent)
       : (e as React.TouchEvent).touches[0];
