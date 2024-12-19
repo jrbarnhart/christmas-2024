@@ -14,12 +14,6 @@
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(-30deg) rotateY(-45deg);
-  /*   animation: spin 5s infinite linear;
-  animation-play-state: paused; */
-}
-
-.cube--animated {
-  /* animation-play-state: running; */
 }
 
 .cube__face {
@@ -48,11 +42,26 @@
   transform: rotateX(-90deg) translateZ(100px);
 }
 
-/* @keyframes spin {
+.cube__face--top-open {
+  animation: popUp 4s ease-in forwards;
+}
+.cube__face--side-open {
+  animation: fallOver 4s ease-in forwards;
+}
+
+@keyframes popUp {
   from {
-    transform: rotateX(-30deg) rotateY(-45deg);
   }
   to {
-    transform: rotateX(-30deg) rotateY(315deg);
+    transform: translateY(-100vh);
   }
-} */
+}
+
+@keyframes fallOver {
+  from {
+    transform: rotateY("0deg");
+  }
+  to {
+    transform: rotateY("-90deg");
+  }
+}
