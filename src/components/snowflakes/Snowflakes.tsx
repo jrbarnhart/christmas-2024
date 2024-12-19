@@ -104,7 +104,6 @@ export default function Snowflakes() {
 
   // Set an interval that creates snowflakes
   useEffect(() => {
-    console.log("SET");
     const creationInterval = setInterval(() => {
       const id = Date.now();
       const x = Math.random() * window.innerWidth;
