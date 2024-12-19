@@ -1,4 +1,5 @@
 import Gift from "./components/gift/Gift";
+import OpenGiftButton from "./components/openGiftButton/OpenGiftButton";
 import useAppState from "./hooks/useAppState";
 import useControls from "./hooks/useControls";
 
@@ -7,27 +8,17 @@ function App() {
   const { handleMouseDown, cubeRef } = useControls({ appState });
 
   return (
-    <main className="bg-slate-500/50 h-screen w-screen touch-none flex flex-col">
+    <main className="bg-slate-500/50 h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
       <div
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
-        className="w-full h-full flex items-center justify-center"
+        className="w-full h-full flex items-center justify-center overflow-hidden row-span-full col-span-full"
       >
         <Gift cubeRef={cubeRef} appState={appState} />
       </div>
-      <button
-        type="button"
-        id="open-button"
-        className="bg-zinc-900 hover:bg-zinc-700 active:bg-zinc-800 text-neutral-50 border-2 border-green-500 w-min mb-10 self-center text-nowrap p-3 rounded-md"
-        onClick={() => {
-          appState.isBoxOpen.set((val) => !val);
-          appState.isDragging.set(false);
-          appState.momentum.restoreDefault();
-          appState.currentRotation.restoreDefault();
-        }}
-      >
-        {`${appState.isBoxOpen.value ? "Close" : "Open"} Present`}
-      </button>
+      <div className="row-start-3 col-start-2 self-center justify-self-center">
+        <OpenGiftButton appState={appState} />
+      </div>
     </main>
   );
 }
