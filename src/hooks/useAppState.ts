@@ -6,6 +6,7 @@ export default function useAppState() {
   const [momentum, setMomentum] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [isBoxOpen, setIsBoxOpen] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
 
   const appState = {
     currentRotation: {
@@ -29,6 +30,10 @@ export default function useAppState() {
     isBoxOpen: {
       value: isBoxOpen,
       set: setIsBoxOpen,
+    },
+    isMusicPlaying: {
+      value: isMusicPlaying,
+      set: setIsMusicPlaying,
     },
   };
 
