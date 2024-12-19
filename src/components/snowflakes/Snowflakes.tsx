@@ -1,6 +1,19 @@
 import { useEffect, useState } from "react";
 
-const Snowflake = ({ x }: { x: number }) => {
+declare module "react" {
+  interface CSSProperties {
+    "--random-rotation-x"?: number;
+    "--random-rotation-y"?: number;
+  }
+}
+
+const Snowflake = ({
+  x,
+  randomRotation,
+}: {
+  x: number;
+  randomRotation: { x: number; y: number };
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +22,11 @@ const Snowflake = ({ x }: { x: number }) => {
       stroke="current-color"
       viewBox="0 0 33.867 33.867"
       className={`absolute h-6 w-6 -top-20 stroke-blue-300 snowflake`}
-      style={{ left: x }}
+      style={{
+        left: x,
+        "--random-rotation-x": randomRotation.x,
+        "--random-rotation-y": randomRotation.y,
+      }}
     >
       <g fill="none">
         <path
@@ -78,7 +95,9 @@ const Snowflake = ({ x }: { x: number }) => {
 };
 
 export default function Snowflakes() {
-  const [snowflakes, setSnowflakes] = useState<{ id: number; x: number }[]>([]);
+  const [snowflakes, setSnowflakes] = useState<
+    { id: number; x: number; randomRotation: { x: number; y: number } }[]
+  >([]);
   const SNOWFLAKE_CREATION_INTERVAL = 300;
   const SNOWFLAKE_CLEANUP_INTERVAL = 1000;
   const SNOWFLAKE_DURATION = 10000;
@@ -88,7 +107,8 @@ export default function Snowflakes() {
     const creationInterval = setInterval(() => {
       const id = Date.now();
       const x = Math.random() * window.innerWidth;
-      setSnowflakes((prev) => [...prev, { id, x }]);
+      const randomRotation = { x: Math.random(), y: Math.random() };
+      setSnowflakes((prev) => [...prev, { id, x, randomRotation }]);
     }, SNOWFLAKE_CREATION_INTERVAL);
 
     return () => {
@@ -112,7 +132,13 @@ export default function Snowflakes() {
   return (
     <div className="relative w-full h-full overflow-hidden">
       {snowflakes.map((flake) => {
-        return <Snowflake key={flake.id} x={flake.x} />;
+        return (
+          <Snowflake
+            key={flake.id}
+            x={flake.x}
+            randomRotation={flake.randomRotation}
+          />
+        );
       })}
     </div>
   );

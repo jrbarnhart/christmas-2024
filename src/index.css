@@ -78,7 +78,9 @@
 }
 
 .snowflake {
-  animation: snowflakeFall 15s infinite;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  animation: snowflakeFall linear 10s infinite;
 }
 
 @keyframes fallFront {
@@ -147,9 +149,28 @@
 
 @keyframes snowflakeFall {
   0% {
-    transform: translateY(0vh);
+    transform: translate(-50%, -10%)
+      rotateX(calc(var(--random-rotation-x) * 1deg))
+      rotateY(calc(var(--random-rotation-y) * 1deg)) translateZ(0px);
+  }
+  25% {
+    transform: translate(calc(-50% + 10px), 25vh)
+      rotateX(calc(var(--random-rotation-x) * 90deg))
+      rotateY(calc(var(--random-rotation-y) * 90deg)) translateZ(-10px);
+  }
+  50% {
+    transform: translate(calc(-50% - 10px), 50vh)
+      rotateX(calc(var(--random-rotation-x) * 180deg))
+      rotateY(calc(var(--random-rotation-y) * 180deg)) translateZ(10px);
+  }
+  75% {
+    transform: translate(calc(-50% + 20px), 75vh)
+      rotateX(calc(var(--random-rotation-x) * 270deg))
+      rotateY(calc(var(--random-rotation-y) * 270deg)) translateZ(-20px);
   }
   100% {
-    transform: translateY(132vh);
+    transform: translate(calc(-50% - 30px), 110vh)
+      rotateX(calc(var(--random-rotation-x) * 360deg))
+      rotateY(calc(var(--random-rotation-y) * 360deg)) translateZ(0px);
   }
 }
