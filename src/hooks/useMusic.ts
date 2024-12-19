@@ -5,6 +5,7 @@ export default function useMusic() {
 
   useEffect(() => {
     musicRef.current.loop = true;
+    musicRef.current.volume = 0.07;
 
     musicRef.current.play().catch(() => {
       console.log("There was an error while starting the music.");
@@ -13,3 +14,5 @@ export default function useMusic() {
 
   return musicRef;
 }
+
+export type Music = ReturnType<typeof useMusic>;
