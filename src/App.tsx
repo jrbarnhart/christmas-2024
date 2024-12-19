@@ -10,12 +10,19 @@ function App() {
   const isBoxOpen = appState.isBoxOpen.value;
   const setMomentumToDefault = appState.momentum.restoreDefault;
   const setCurrentRotationToDefault = appState.currentRotation.restoreDefault;
+  const setIsDragging = appState.isDragging.set;
   useEffect(() => {
     if (isBoxOpen) {
       setMomentumToDefault();
       setCurrentRotationToDefault();
+      setIsDragging(false);
     }
-  }, [isBoxOpen, setCurrentRotationToDefault, setMomentumToDefault]);
+  }, [
+    isBoxOpen,
+    setCurrentRotationToDefault,
+    setIsDragging,
+    setMomentumToDefault,
+  ]);
 
   return (
     <main className="bg-slate-500/50 h-screen w-screen touch-none flex flex-col">
@@ -34,7 +41,7 @@ function App() {
           appState.isBoxOpen.set((val) => !val);
         }}
       >
-        Open Present
+        {`${isBoxOpen ? "Close" : "Open"} Present`}
       </button>
     </main>
   );
