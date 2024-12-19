@@ -26,7 +26,7 @@ function App() {
       <div className="row-span-full col-span-full pointer-events-none touch-none">
         <Snowflakes />
       </div>
-      <div className="row-start-1 col-start-1 flex justify-start p-10 md:p-20 ">
+      <div className="row-start-1 col-start-1 flex justify-start p-10 md:p-20 h-min w-min">
         <MusicToggle appState={appState} music={music} />
       </div>
     </main>

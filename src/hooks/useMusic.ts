@@ -10,19 +10,30 @@ export default function useMusic({ appState }: { appState: AppState }) {
     audio.loop = true;
     audio.volume = 0.07;
 
-    const handleClick = () => {
+    const handleMouseDown = () => {
       setIsMusicPlaying(true);
       audio.play().catch(() => {
         console.error("There was an error while starting the music.");
       });
     };
 
-    window.addEventListener("click", handleClick, { once: true });
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+        setIsMusicPlaying(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleMouseDown, { once: true });
+    window.addEventListener("touchend", handleMouseDown, { once: true });
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       setIsMusicPlaying(false); // Stop music when cleanup happens.
       audio.pause(); // Explicitly pause the audio.
-      window.removeEventListener("click", handleClick);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("touchend", handleMouseDown);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [setIsMusicPlaying]);
 
