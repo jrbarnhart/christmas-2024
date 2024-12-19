@@ -9,7 +9,7 @@ import useMusic from "./hooks/useMusic";
 function App() {
   const appState = useAppState();
   const { handleMouseDown, cubeRef } = useControls({ appState });
-  const music = useMusic();
+  const music = useMusic({ appState });
 
   return (
     <main className="bg-gradient-to-tr from-red-300 to-green-300 via-white h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
