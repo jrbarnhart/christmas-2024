@@ -1,4 +1,5 @@
 import Gift from "./components/gift/Gift";
+import Message from "./components/message/Message";
 import MusicToggle from "./components/music/MusicToggle";
 import OpenGiftButton from "./components/openGiftButton/OpenGiftButton";
 import Snowflakes from "./components/snowflakes/Snowflakes";
@@ -13,10 +14,15 @@ function App() {
 
   return (
     <main className="bg-gradient-to-tr from-red-300 to-green-300 via-white h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
+      <div className="col-span-full row-span-full self-center justify-self-center">
+        <Message appState={appState} />
+      </div>
       <div
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
-        className="w-full h-full flex items-center justify-center overflow-hidden row-span-full col-span-full"
+        className={`w-full h-full flex items-center justify-center overflow-hidden row-span-full col-span-full ${
+          appState.isBoxOpen.value ? "pointer-events-none" : ""
+        }`}
       >
         <Gift cubeRef={cubeRef} appState={appState} />
       </div>
