@@ -14,13 +14,13 @@ function App() {
 
   return (
     <main className="bg-gradient-to-tr from-red-300 to-green-300 via-white h-screen w-screen touch-none grid grid-rows-3 grid-cols-3">
-      <div className="col-span-full row-span-full self-center justify-self-center">
+      <div className="col-start-1 col-end-4 row-start-1 row-end-3 self-end justify-self-center h-full w-full mt-10">
         <Message appState={appState} />
       </div>
       <div
         onMouseDown={handleMouseDown}
         onTouchStart={handleMouseDown}
-        className={`w-full h-full flex items-center justify-center overflow-hidden row-span-full col-span-full ${
+        className={`w-full h-full flex items-center justify-center overflow-hidden col-start-1 col-end-4 row-start-1 row-end-3 mt-10 ${
           appState.isBoxOpen.value ? "pointer-events-none" : ""
         }`}
       >
@@ -32,7 +32,7 @@ function App() {
       <div className="row-span-full col-span-full pointer-events-none touch-none">
         <Snowflakes />
       </div>
-      <div className="row-start-1 col-start-1 flex justify-start p-10 md:p-20 h-min w-min">
+      <div className="row-start-1 row-end-1 col-start-1 col-end-1 flex justify-start p-5 md:p-16 h-min w-min">
         <MusicToggle appState={appState} music={music} />
       </div>
     </main>

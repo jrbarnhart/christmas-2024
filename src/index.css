@@ -83,6 +83,14 @@
   animation: snowflakeFall linear 10s infinite;
 }
 
+.glowing {
+  background: radial-gradient(
+    circle,
+    rgba(252, 211, 77, 0.8) 0%,
+    rgba(253, 224, 71, 0) 70%
+  );
+}
+
 @keyframes fallFront {
   0% {
     transform: rotateY(0deg) translateZ(100px);
