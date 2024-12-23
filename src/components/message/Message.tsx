@@ -25,11 +25,15 @@ export default function Message({ appState }: { appState: AppState }) {
         }`}
         style={{ boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)" }}
       >
-        <header className="bg-gradient-to-br from-red-300/80 to bg-green-400/50 via-white px-4 py-2 text-lg font-semibold border-b-2 border-gray-200 rounded-t-md">
-          <p>Grandma and Grandpa,</p>
+        <header className="bg-gradient-to-br from-red-300 to bg-green-400 via-white px-4 py-2 border-b-2 border-gray-200 rounded-t-md">
+          <p className="text-2xl font-extrabold bg-gradient-to-b from-blue-400 to-blue-500 via-blue-300 drop-shadow-lg bg-clip-text text-transparent leading-norma">
+            Grandma and Grandpa,
+          </p>
         </header>
-        <div className="bg-white px-6 py-4 font-serif text-gray-700 rounded-b-md shadow-inner border border-gray-200">
-          <p>Merry Christmas!</p>
+        <div className="bg-blue-50 px-6 py-4 font-serif text-gray-700 rounded-b-md shadow-inner border border-gray-200 flex flex-col gap-4">
+          <p className="text-xl font-extrabold bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent leading-norma w-fit">
+            Merry Christmas!
+          </p>
           <p>
             I just wanted to let you know how much I appreciate everything that
             you do for me. Thank you for always being there when I need help,
@@ -40,8 +44,10 @@ export default function Message({ appState }: { appState: AppState }) {
             I hope you have a great Christmas and know how much you both mean to
             me.
           </p>
-          <p>Love,</p>
-          <p>Josh</p>
+          <p>
+            Love, <br />
+            Josh
+          </p>
         </div>
       </article>
 
